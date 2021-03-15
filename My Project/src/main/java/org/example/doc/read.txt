@@ -1,0 +1,48 @@
+1.包的摆放规则
+com.公司名.项目名.一级模块名.二级模块名(对应表名)
+controller/action
+service
+model
+dao
+util
+
+2.标准的增删改查
+六个方法
+int insert(User user);
+int update(User user);
+int delete(int id);
+List<User> queryList(User user);
+int queryCount(User user);
+User findById(int i);
+
+3.注解的区别:
+@Repository//数据访问层
+@Service//业务层
+@Component//普通组件
+@Controller//mvc专用
+
+4.控制器方法中的参数Map<String,Object>map表示model或者httprequest
+
+5.@ModelAttribute("user") User user在控制器的方法中的参数时,作用是把user放回到作用域中
+
+6.关于封装
+(1)把共用成员变量 模板 日志工具 放到基类当中
+(2)把拼加条件的过程转移到条件类中
+(3)把查询记录个数的SQL改成通用的
+(4)把查询记录个数的方法移动到基类里去
+(5)把分页逻辑移到基类中
+(6)把返回数据类型用泛型代替
+(7)在条件基类中增加一些重载(条件的数据类型不同)的拼条件及参数方法把模糊查询情况单独处理
+(8)清空条件和返回结果部分移到基类中(模板方法设计模式)
+
+7.使用到的技术
+(1)继承
+(2)重载
+(3)载写
+(4)设计模式:模板方法
+(5)泛型:类泛型
+
+8.页面封装
+(1)共用导入
+(2)分页栏
+(3)常用js代码
